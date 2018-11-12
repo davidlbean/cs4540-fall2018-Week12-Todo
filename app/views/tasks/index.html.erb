@@ -4,28 +4,17 @@
 
 <div class='todo uncompleted'>
   <table>
-    <% @tasks.uncompleted.each do |task| %>
-      <%= form_with model: task do |form| %>
-        <tr>
-          <td><%= form.check_box :is_complete %></td>
-          <td><%= task.name %></td>
-        </tr>
-      <% end %>
-    <% end %>
+    <%= render @tasks.uncompleted %>
   </table>
 </div>
+
 <hr>
+
 <h4>Completed Items:</h4>
+
 <div class='todo completed'>
   <table>
-    <% @tasks.completed.each do |task| %>
-      <%= form_with model: task do |form| %>
-        <tr>
-          <td><%= form.check_box :is_complete %></td>
-          <td><%= task.name %></td>
-        </tr>
-      <% end %>
-    <% end %>
+    <%= render @tasks.completed %>
   </table>
 </div>
 
