@@ -1,6 +1,6 @@
 <%= form_with model: task do |form| %>
   <tr>
-    <td><%= form.check_box :is_complete %></td>
+    <td><%= form.check_box :is_complete, class: 'task-checkbox', id: task.id %></td>
     <td><%= task.name %></td>
   </tr>
 <% end %>
