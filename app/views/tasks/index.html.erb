@@ -3,7 +3,7 @@
 <h3>Your ToDo Items</h3>
 
 <div class='todo uncompleted'>
-  <table>
+  <table id='uncompleted-task-list'>
     <%= render @tasks.uncompleted %>
   </table>
 </div>
@@ -13,7 +13,7 @@
 <h4>Completed Items:</h4>
 
 <div class='todo completed'>
-  <table>
+  <table id='completed-task-list'>
     <%= render @tasks.completed %>
   </table>
 </div>
@@ -25,14 +25,15 @@
 <%= javascript_tag do %>
   
   $('.task-checkbox').click(function(event){
+    <!-- $(document).on('click', '.task-checkbox', function(event){ -->
     console.log('You clicked on checkbox ' + event.target.id);
 
-  $.ajax({
-    type: 'PUT',
-    url: '/tasks/' + event.target.id, 
-    data: { id: event.target.id, task: { is_complete: $(event.target).is(":checked") } }
+    $.ajax({
+      type: 'PUT',
+      url: '/tasks/' + event.target.id + '.js', 
+      data: { id: event.target.id, task: { is_complete: $(event.target).is(":checked") } }
+    })
   })
-})
 
 
 <% end %>

@@ -1,0 +1,4 @@
+console.log('inside the js');
+
+$('#uncompleted-task-list').html('<%= j render @tasks.uncompleted %>').fadeOut().fadeIn();
+$('#completed-task-list').html('<%= j render @tasks.completed %>').fadeOut().fadeIn();
